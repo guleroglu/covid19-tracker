@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchData } from "./features/covid/covidSlice";
+import Header from "./components/Header/Header";
+import Cards from "./components/Cards/Cards";
+import CountryControl from "./components/CountryControl/CountryControl";
+import Chart from "./components/Chart/Chart";
+import { CircleLoader } from "react-spinners";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const loading = useSelector((state) => state.covid.loading);
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {loading ? (
+        <div className="app-container">
+          <CircleLoader color={"#36D7B7"} loading={loading} size={50} />
+          
+        </div>
+      ) : (
+        <>
+          <Header />
+          <Cards />
+          <CountryControl />
+          <Chart />
+        </>
+      )}
     </div>
   );
 }

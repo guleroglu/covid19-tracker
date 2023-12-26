@@ -1,0 +1,59 @@
+.cards-container {
+  max-width: 1024px;
+  margin: 30px auto;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  padding: 20px;
+}
+
+.cases-card {
+  background-color: #b1d7fe;
+}
+
+.recovered-card {
+  background-color: #ddf6e2;
+}
+
+.deaths-card {
+  background-color: #f4d7d7;
+}
+
+.active-card {
+  background-color: #f5e1ca;
+}
+
+.cards-wrapper .card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px 40px;
+  border-radius: 5px;
+  color: #000;
+}
+
+.cards-wrapper .card .card-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.cards-wrapper .card .card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cards-wrapper .card .card-info .card-info-result {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: sans-serif;
+}
+
+.cards-wrapper .card .card-info .card-country {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: start;
+}
